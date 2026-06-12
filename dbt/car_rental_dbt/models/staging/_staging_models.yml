@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: stg_vehicles
+    columns:
+      - name: vehicle_id
+        tests:
+          - not_null
+          - unique
+      - name: branch_id
+        tests:
+          - not_null
+      - name: daily_rate
+        tests:
+          - not_null
+
+  - name: stg_branches
+    columns:
+      - name: branch_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: email
+        tests:
+          - not_null
+
+  - name: stg_rentals
+    columns:
+      - name: rental_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: vehicle_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_vehicles')
+                field: vehicle_id
+      - name: rental_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['completed', 'cancelled', 'active']
+
+  - name: stg_payments
+    columns:
+      - name: payment_id
+        tests:
+          - not_null
+          - unique
+      - name: rental_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_rentals')
+                field: rental_id
+      - name: payment_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['paid', 'failed', 'refunded', 'cancelled', 'pending', 'authorized']

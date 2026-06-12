@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: int_rental_financials
+    columns:
+      - name: rental_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+      - name: vehicle_id
+        tests:
+          - not_null
+      - name: branch_id
+        tests:
+          - not_null
+      - name: paid_revenue
+        tests:
+          - not_null
+
+  - name: mart_daily_revenue
+    columns:
+      - name: rental_start_date
+        tests:
+          - not_null
+          - unique
+      - name: paid_revenue
+        tests:
+          - not_null
+
+  - name: mart_branch_performance
+    columns:
+      - name: branch_id
+        tests:
+          - not_null
+          - unique
+      - name: paid_revenue
+        tests:
+          - not_null
+
+  - name: mart_vehicle_utilization
+    columns:
+      - name: vehicle_id
+        tests:
+          - not_null
+          - unique
+      - name: paid_revenue
+        tests:
+          - not_null

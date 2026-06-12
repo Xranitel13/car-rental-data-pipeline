@@ -1,0 +1,7 @@
+car_rental_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: data/warehouse/car_rental.duckdb
+      threads: 4

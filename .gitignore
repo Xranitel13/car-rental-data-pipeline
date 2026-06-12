@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Data files
+data/external/*
+data/raw/*
+data/warehouse/*
+
+# Keep folder structure
+!data/external/.gitkeep
+!data/raw/.gitkeep
+!data/warehouse/.gitkeep
+
+# dbt
+dbt/car_rental_dbt/target/
+dbt/logs/
+dbt/car_rental_dbt/logs/
+dbt/car_rental_dbt/dbt_packages/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# IDE
+.idea/
