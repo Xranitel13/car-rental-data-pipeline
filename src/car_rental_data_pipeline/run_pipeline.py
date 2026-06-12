@@ -15,17 +15,17 @@ def run_step(command: list[str], step_name: str) -> None:
 
 def main():
     run_step(
-        [sys.executable, "-m", "car_rental_gcp_data_platform.prepare_raw_data"],
+        [sys.executable, "-m", "car_rental_data_pipeline.prepare_raw_data"],
         "Prepare raw vehicle and branch data",
     )
 
     run_step(
-        [sys.executable, "-m", "car_rental_gcp_data_platform.generate_transactions"],
+        [sys.executable, "-m", "car_rental_data_pipeline.generate_transactions"],
         "Generate transactional data",
     )
 
     run_step(
-        [sys.executable, "-m", "car_rental_gcp_data_platform.load_to_duckdb"],
+        [sys.executable, "-m", "car_rental_data_pipeline.load_to_duckdb"],
         "Load raw data to DuckDB",
     )
 

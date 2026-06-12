@@ -1,7 +1,7 @@
 # Car Rental Data Pipeline
 
 A local data engineering project for practicing Python, SQL, DuckDB and dbt.
-
+DuckDB is used as a local warehouse to avoid cloud costs. The same structure could later be adapted to BigQuery/GCP.
 The project uses a public car rental dataset and synthetic transaction data to build a small ELT pipeline with raw, staging, intermediate and mart layers.
 
 ## Goal
@@ -98,15 +98,15 @@ poetry install
 Run the full local pipeline:
 
 ```bash
-poetry run python -m car_rental_gcp_data_platform.run_pipeline
+poetry run python -m car_rental_data_pipeline.run_pipeline
 ```
 
 Or run steps manually:
 
 ```bash
-poetry run python -m car_rental_gcp_data_platform.prepare_raw_data
-poetry run python -m car_rental_gcp_data_platform.generate_transactions
-poetry run python -m car_rental_gcp_data_platform.load_to_duckdb
+poetry run python -m car_rental_data_pipeline.prepare_raw_data
+poetry run python -m car_rental_data_pipeline.generate_transactions
+poetry run python -m car_rental_data_pipeline.load_to_duckdb
 poetry run dbt build --project-dir dbt/car_rental_dbt --profiles-dir dbt
 ```
 
@@ -128,7 +128,7 @@ It contains:
 To inspect created database objects:
 
 ```bash
-poetry run python -m car_rental_gcp_data_platform.check_warehouse
+poetry run python -m car_rental_data_pipeline.check_warehouse
 ```
 
 ## Project Structure
@@ -141,7 +141,7 @@ car-rental-gcp-data-platform/
 │   └── warehouse/
 │
 ├── src/
-│   └── car_rental_gcp_data_platform/
+│   └── car_rental_data_pipeline/
 │       ├── prepare_raw_data.py
 │       ├── generate_transactions.py
 │       ├── load_to_duckdb.py
