@@ -19,6 +19,7 @@ dbt/car_rental_dbt/target/
 dbt/logs/
 dbt/car_rental_dbt/logs/
 dbt/car_rental_dbt/dbt_packages/
+dbt/.user.yml
 
 # Build artifacts
 dist/
