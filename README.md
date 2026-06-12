@@ -45,6 +45,13 @@ dbt tests
 
 ## Data
 
+The project uses the Cornell Car Rental Dataset from Kaggle as the external source for vehicle and location data.
+
+Dataset: Cornell Car Rental Dataset  
+Source: https://www.kaggle.com/datasets/kushleshkumar/cornell-car-rental-dataset
+
+The dataset contains car rental vehicle data such as make, model, year, daily rate, location and fuel type.
+
 The project combines:
 
 * a public car rental dataset for vehicle and location data
