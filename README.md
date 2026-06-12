@@ -134,7 +134,7 @@ poetry run python -m car_rental_data_pipeline.check_warehouse
 ## Project Structure
 
 ```text
-car-rental-gcp-data-platform/
+car_rental_data_pipeline/
 ├── data/
 │   ├── external/
 │   ├── raw/
